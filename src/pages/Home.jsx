@@ -3,6 +3,7 @@ import PageWrapper from "../components/PageWrapper";
 import MovieCarousel from "../components/MovieCarousel";
 import SeriesCarousel from "../components/SeriesCarousel";
 import FeaturedCarousel from "../components/FeaturedCarousel";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -16,9 +17,9 @@ export default function Home() {
           películas y series favoritas. ¡Busca, explora y prepárate para tu
           próxima maratón!
         </p>
-        <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all">
+        <Link to="/movies" className="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all">
           Buscar ahora
-        </button>
+        </Link>
       </section>
 
       <section className="relative py-16 px-6 bg-gray-100 dark:bg-gray-900 overflow-hidden">
