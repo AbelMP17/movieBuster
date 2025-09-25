@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply transition-colors duration-500;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+html.dark body {
+  @apply bg-gray-950 text-gray-100;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.3s ease-out forwards;
+}
+
+.animate-fade-out-scale {
+  animation: fadeOutScale 0.3s ease-in forwards;
+}
+
+/* Claro */
+*::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Oscuro */
+html.dark *::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Firefox también usa scrollbar-color, así que lo dejamos así: */
+* {
+  scrollbar-color: #e11d48 transparent;
+}
+
+html.dark * {
+  scrollbar-color: #f43f5e transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* En index.css */
+.swiper {
+  overflow: visible !important;
+}

@@ -1,0 +1,9 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: #ef4444; /* rojo tailwind */
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
