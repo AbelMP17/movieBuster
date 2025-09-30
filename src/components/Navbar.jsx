@@ -5,6 +5,8 @@ import logo_white from "../assets/logo_white.png";
 import ThemeToggle from "./ThemeToggle";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
+import { useTheme } from "../context/ThemeContext"; // ya lo tienes importado
+
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -12,7 +14,8 @@ export default function Navbar() {
   const [shouldRenderMenu, setShouldRenderMenu] = useState(false);
   const buttonRef = useRef(null);
 
-  const dark = document.documentElement.classList.contains("dark");
+  const { darkMode } = useTheme();
+
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -47,15 +50,15 @@ export default function Navbar() {
       <div className="flex items-center justify-between">
         <Link to="/">
           <img
-            src={dark ? logo_white : logo}
+            src={darkMode ? logo_white : scrolled ? logo : logo_white}
             alt="MovieBuster Logo"
             className="w-[100px]"
           />
         </Link>
 
         <div className="flex items-center gap-4">
-          <DesktopMenu />
-          <ThemeToggle />
+          <DesktopMenu scrolled={scrolled} />
+          <ThemeToggle scrolled={scrolled} />
 
           {/* Hamburguesa animada */}
           <button
@@ -70,17 +73,17 @@ export default function Navbar() {
             {/* Animación de la hamburguesa */}
             <div className="relative w-6 h-5">
               <span
-                className={`absolute left-0 top-0 w-6 h-[2px] dark:bg-gray-400 bg-gray-800 transform transition-all duration-300 ${
+                className={`absolute left-0 top-0 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" }  transform transition-all duration-300 ${
                   menuOpen ? "rotate-45 translate-y-[10px]" : ""
                 }`}
               ></span>
               <span
-                className={`absolute left-0 top-1/2 w-6 h-[2px] dark:bg-gray-400 bg-gray-800 transform transition-opacity duration-300 ${
+                className={`absolute left-0 top-1/2 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-opacity duration-300 ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               ></span>
               <span
-                className={`absolute left-0 bottom-0 w-6 h-[2px] dark:bg-gray-400 bg-gray-800 transform transition-all duration-300 ${
+                className={`absolute left-0 bottom-0 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-all duration-300 ${
                   menuOpen ? "-rotate-45 -translate-y-[10px]" : ""
                 }`}
               ></span>

@@ -2,7 +2,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 
-export default function DesktopMenu() {
+export default function DesktopMenu( { scrolled } ) {
   const location = useLocation();
   const { favorites } = useFavorites();
 
@@ -21,7 +21,7 @@ export default function DesktopMenu() {
           className={`hover:text-red-500 transition-colors duration-200 ${
             isActive(to)
               ? "text-red-600 dark:text-red-400 font-semibold"
-              : "text-gray-700 dark:text-gray-300"
+              : scrolled ? "dark:text-gray-200 text-gray-900": "dark:text-gray-200 text-gray-200"
           } relative`}
         >
           {label}

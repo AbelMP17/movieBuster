@@ -1,21 +1,22 @@
-/* eslint-disable react-refresh/only-export-components */
+// src/context/ThemeContext.jsx
 import { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
-export function ThemeProvider({ children }) {
+export const ThemeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem("theme") === "dark";
+    const stored = localStorage.getItem("darkMode");
+    return stored === "true" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
   });
 
   useEffect(() => {
+    const html = document.documentElement;
     if (darkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
+      html.classList.add("dark");
     } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
+      html.classList.remove("dark");
     }
+    localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
 
   return (
@@ -23,6 +24,6 @@ export function ThemeProvider({ children }) {
       {children}
     </ThemeContext.Provider>
   );
-}
+};
 
 export const useTheme = () => useContext(ThemeContext);
