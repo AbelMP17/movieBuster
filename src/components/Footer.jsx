@@ -3,7 +3,7 @@ import { Mail, Linkedin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 px-6 py-10 mt-20 transition-colors duration-500">
+    <footer className="bg-gray-200 dark:bg-gray-900 text-gray-700 dark:text-gray-300 px-6 py-10 mt-20 transition-colors duration-500">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
         {/* Marca */}
         <div>

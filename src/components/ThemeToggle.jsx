@@ -2,7 +2,7 @@
 import { useTheme } from "../context/ThemeContext";
 import { Sun, Moon } from "lucide-react";
 
-export default function ThemeToggle({scrolled}) {
+export default function ThemeToggle({scrolled, isHome}) {
   const { darkMode, setDarkMode } = useTheme();
 
   return (
@@ -14,7 +14,7 @@ export default function ThemeToggle({scrolled}) {
       {darkMode ? (
         <Sun className="w-5 h-5 text-yellow-400 animate-fade-in" />
       ) : (
-        <Moon className={`w-5 h-5 ${scrolled ? "text-gray-800" : "text-gray-400"} animate-fade-in`} />
+        <Moon className={`w-5 h-5 ${scrolled || !isHome ? "text-gray-800" : "text-gray-400"} animate-fade-in`} />
       )}
     </button>
   );

@@ -47,7 +47,7 @@ export default function Series() {
 
   return (
     <PageWrapper>
-      <section className="px-6 py-20 min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500">
+      <section className="px-6 py-5 min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500">
         <h2 className="text-4xl font-bold mb-6">Buscar series</h2>
 
         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-8">

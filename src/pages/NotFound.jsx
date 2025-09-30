@@ -5,7 +5,7 @@ import PageWrapper from "../components/PageWrapper";
 export default function NotFound() {
   return (
     <PageWrapper>
-      <section className="flex flex-col items-center justify-center text-center py-32 px-6 min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100  transition-all duration-500">
+      <section className="flex flex-col items-center justify-center text-center py-32 px-6 min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100  transition-all duration-500">
         <h1 className="text-6xl font-bold text-red-600 dark:text-red-400 mb-4">
           404
         </h1>

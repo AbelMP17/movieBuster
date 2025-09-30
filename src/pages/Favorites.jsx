@@ -8,7 +8,7 @@ export default function Favorites() {
 
   return (
     <PageWrapper>
-      <section className="px-6 py-20 min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500">
+      <section className="px-6 py-5 min-h-screen bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-all duration-500">
         <h2 className="text-4xl font-bold mb-6">Mis Favoritos</h2>
 
         {favorites.length === 0 ? (

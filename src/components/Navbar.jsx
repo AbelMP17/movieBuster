@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useRef, } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
 import logo_white from "../assets/logo_white.png";
 import ThemeToggle from "./ThemeToggle";
@@ -10,18 +10,31 @@ import { useTheme } from "../context/ThemeContext"; // ya lo tienes importado
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [isHome, setIsHome] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false);
   const [shouldRenderMenu, setShouldRenderMenu] = useState(false);
   const buttonRef = useRef(null);
+  const location = useLocation().pathname
 
   const { darkMode } = useTheme();
 
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+useEffect(() => {
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 50;
+    setScrolled(isScrolled);
+  };
+
+  handleScroll(); // Ejecutar una vez al montar para establecer el estado inicial
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
+useEffect(() => {
+    setIsHome(location == '/')
+}, [location])
+
 
   // Monta el menú solo si debe
   useEffect(() => {
@@ -40,9 +53,9 @@ export default function Navbar() {
   const baseClasses =
     "top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300";
   const navClasses = `${baseClasses} ${
-    scrolled
+    scrolled || !isHome
       ? "sticky bg-white/80 dark:bg-gray-900/80 backdrop-blur shadow"
-      : "absolute bg-transparent"
+      : "fixed bg-transparent"
   } transition-all duration-500 ease-in-out`;
 
   return (
@@ -50,15 +63,15 @@ export default function Navbar() {
       <div className="flex items-center justify-between">
         <Link to="/">
           <img
-            src={darkMode ? logo_white : scrolled ? logo : logo_white}
+            src={darkMode ? logo_white : scrolled || !isHome ? logo : logo_white}
             alt="MovieBuster Logo"
             className="w-[100px]"
           />
         </Link>
 
         <div className="flex items-center gap-4">
-          <DesktopMenu scrolled={scrolled} />
-          <ThemeToggle scrolled={scrolled} />
+          <DesktopMenu scrolled={scrolled} isHome={isHome} />
+          <ThemeToggle scrolled={scrolled} isHome={isHome} />
 
           {/* Hamburguesa animada */}
           <button
@@ -73,17 +86,17 @@ export default function Navbar() {
             {/* Animación de la hamburguesa */}
             <div className="relative w-6 h-5">
               <span
-                className={`absolute left-0 top-0 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" }  transform transition-all duration-300 ${
+                className={`absolute left-0 top-0 w-6 h-[2px] ${!scrolled && !isHome ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" }  transform transition-all duration-300 ${
                   menuOpen ? "rotate-45 translate-y-[10px]" : ""
                 }`}
               ></span>
               <span
-                className={`absolute left-0 top-1/2 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-opacity duration-300 ${
+                className={`absolute left-0 top-1/2 w-6 h-[2px] ${!scrolled && !isHome ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-opacity duration-300 ${
                   menuOpen ? "opacity-0" : "opacity-100"
                 }`}
               ></span>
               <span
-                className={`absolute left-0 bottom-0 w-6 h-[2px] ${!scrolled ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-all duration-300 ${
+                className={`absolute left-0 bottom-0 w-6 h-[2px] ${!scrolled && !isHome ? "bg-gray-400" : "dark:bg-gray-400 bg-gray-800" } transform transition-all duration-300 ${
                   menuOpen ? "-rotate-45 -translate-y-[10px]" : ""
                 }`}
               ></span>
