@@ -96,7 +96,7 @@ export default function Series() {
           >
             Anterior
           </button>
-          <span className="font-medium">
+          <span className="font-medium text-white">
             Página {page} de {totalPages}
           </span>
           <button
