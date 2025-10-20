@@ -1,12 +1,72 @@
-# React + Vite
+# 🍿 MovieBuster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MovieBuster** es una aplicación web desarrollada con **React**, **TypeScript** y **Vite**, que permite explorar, buscar y descubrir películas y series a través de una interfaz moderna y rápida.  
+Su diseño minimalista y su alto rendimiento hacen que navegar por el catálogo sea una experiencia fluida y atractiva.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Stack Tecnológico
 
-## Expanding the ESLint configuration
+- ⚛️ **React 18** + **TypeScript**  
+- ⚡ **Vite** para compilación ultrarrápida  
+- 🎨 **TailwindCSS** para un diseño limpio y adaptable  
+- 🎬 **API de The Movie Database (TMDB)** para obtener datos en tiempo real  
+- 🧭 **React Router** para navegación fluida  
+- ☁️ **Vercel** para el despliegue  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Características principales
+
+- 🔎 **Buscador en tiempo real** de películas y series  
+- 🎞️ Visualización de **fichas detalladas** con póster, sinopsis, puntuación y géneros  
+- 🧠 **Recomendaciones inteligentes** basadas en la búsqueda del usuario  
+- 📱 Diseño **totalmente responsive**  
+- ⚡ **Carga optimizada** gracias a Vite y Lazy Loading  
+- ❤️ Sistema de **favoritos o watchlist local**  
+
+---
+
+## 🧩 Instalación local
+
+Clona el proyecto y ejecuta los siguientes comandos:
+
+```
+bash
+
+git clone https://github.com/AbelMP17/movieBuster.git
+cd movieBuster
+npm install
+npm run dev
+```
+
+La aplicación se ejecutará en: [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 🧠 Aprendizajes y Retos Técnicos
+
+- Integración con **APIs externas (TMDB)** y manejo eficiente de peticiones asincrónicas.  
+- Implementación de **routing dinámico y lazy loading** con React Router.  
+- Diseño de interfaz **responsiva y minimalista** con TailwindCSS.  
+- Optimización de rendimiento y SEO con Vite.  
+
+---
+
+## 📦 Próximas mejoras
+
+- 🔐 Autenticación y perfil de usuario para guardar listas personales  
+- 🎯 Filtros avanzados por género, año o valoración  
+- 🌙 Modo oscuro / claro automático  
+- 📊 Dashboard con estadísticas de visualización  
+
+---
+
+## 👨‍💻 Autor
+
+Desarrollado por **Abel Martín Pérez**  
+🐙 [GitHub](https://github.com/AbelMP17)
+
+---
+
+> _“Una interfaz limpia y una experiencia rápida son el mejor tráiler para cualquier aplicación.”_
