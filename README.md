@@ -64,7 +64,7 @@ La aplicación se ejecutará en: [http://localhost:5173](http://localhost:5173)
 
 ## 👨‍💻 Autor
 
-Desarrollado por **Abel Martín Pérez**  
+Desarrollado por **Abel Martínez Peinado**  
 🐙 [GitHub](https://github.com/AbelMP17)
 
 ---
